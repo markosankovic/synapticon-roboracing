@@ -18,7 +18,7 @@ export class CountdownComponent implements OnInit {
   subscription: Subscription;
 
   constructor(private router: Router, private raceService: RaceService) {
-    this.race = this.raceService.race;
+    this.race = this.raceService.sharedRace;
   }
 
   ngOnInit() {

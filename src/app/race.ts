@@ -1,4 +1,3 @@
 export class Race {
-  player: string;
-  time: number; // in milliseconds
+  constructor(public player?: string, public time?: number) { }
 }

@@ -22,7 +22,7 @@ export class RaceComponent implements OnInit {
   constructor(private router: Router, private raceService: RaceService) { }
 
   ngOnInit() {
-    this.race = this.raceService.race;
+    this.race = this.raceService.sharedRace;
     const observable = Observable.timer(0, 1);
     this.subscription = observable.subscribe((val) => {
       this.endTime = Date.now();

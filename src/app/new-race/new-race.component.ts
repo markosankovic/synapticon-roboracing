@@ -14,7 +14,7 @@ export class NewRaceComponent implements OnInit {
   race: Race;
 
   constructor(private router: Router, private raceService: RaceService) {
-    this.race = raceService.race = new Race();
+    this.race = raceService.sharedRace = new Race();
   }
 
   ngOnInit() {

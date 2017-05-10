@@ -15,8 +15,8 @@ export class FinishComponent implements OnInit {
   place: number = 12;
 
   constructor(private router: Router, private raceService: RaceService) {
-    this.race = raceService.race;
-    raceService.insert(this.race);
+    this.race = raceService.sharedRace;
+    raceService.insertRace(new Race(this.race.player, this.race.time));
   }
 
   ngOnInit() {
