@@ -13,6 +13,7 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { RaceComponent } from './race/race.component';
 import { FinishComponent } from './finish/finish.component';
 import { RaceTimePipe } from './race-time.pipe';
+import { OrdinalPipe } from './ordinal.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RaceTimePipe } from './race-time.pipe';
     CountdownComponent,
     RaceComponent,
     FinishComponent,
-    RaceTimePipe
+    RaceTimePipe,
+    OrdinalPipe
   ],
   imports: [
     BrowserModule,

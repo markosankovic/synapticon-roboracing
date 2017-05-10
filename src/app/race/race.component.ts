@@ -13,6 +13,7 @@ export class RaceComponent implements OnInit {
 
   player: string;
   time: number;
+  bestTime: number = 10000; // in milliseconds
 
   subscription: Subscription;
   startTime: number = Date.now();

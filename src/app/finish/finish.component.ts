@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { RaceService } from '../race.service';
 
 @Component({
   selector: 'app-finish',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinishComponent implements OnInit {
 
-  constructor() { }
+  player: string;
+  time: number;
+  place: number = 21;
+
+
+  constructor(private router: Router, private raceService: RaceService) {
+    this.player = raceService.player;
+    this.time = raceService.time;
+  }
 
   ngOnInit() {
   }
