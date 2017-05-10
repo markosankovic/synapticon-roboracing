@@ -1,3 +1,8 @@
-<p>
-  countdown works!
-</p>
+<h1 *ngIf="this.countdown > 0; else goBlock">
+  {{this.countdown}}
+</h1>
+<template #goBlock>
+  <h1>
+    GO!
+  </h1>
+</template>
