@@ -6,7 +6,11 @@ import { Race } from './race';
 export class RaceService {
 
   race: Race = new Race();
+  races: Array<Race> = [];
 
   constructor() { }
 
+  insert(race: Race) {
+    this.races.push(race);
+  }
 }
