@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs/Rx';
 
+import { Race } from '../race';
 import { RaceService } from '../race.service';
 
 @Component({
@@ -11,9 +12,8 @@ import { RaceService } from '../race.service';
 })
 export class RaceComponent implements OnInit {
 
-  player: string;
-  time: number;
-  bestTime: number = 10000; // in milliseconds
+  race: Race;
+  bestTime: number = 12345; // in milliseconds
 
   subscription: Subscription;
   startTime: number = Date.now();
@@ -22,19 +22,20 @@ export class RaceComponent implements OnInit {
   constructor(private router: Router, private raceService: RaceService) { }
 
   ngOnInit() {
-    this.player = this.raceService.player;
-    this.time = Date.now();
+    this.race = this.raceService.race;
     const observable = Observable.timer(0, 1);
     this.subscription = observable.subscribe((val) => {
       this.endTime = Date.now();
-      this.time = this.endTime - this.startTime;
+      this.race.time = this.endTime - this.startTime;
     });
   }
 
   onFinish() {
-    this.subscription.unsubscribe();
-    this.raceService.time = this.time;
     this.router.navigate(['/finish']);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

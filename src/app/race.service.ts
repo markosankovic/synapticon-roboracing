@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
+import { Race } from './race';
+
 @Injectable()
 export class RaceService {
 
-  player: string;
-  time: number;
-  date: Date;
+  race: Race = new Race();
 
   constructor() { }
 

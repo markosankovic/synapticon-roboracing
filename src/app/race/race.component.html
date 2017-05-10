@@ -1,12 +1,12 @@
 <h2>
-  {{player}}
+  {{race.player}}
 </h2>
 <h1>
-  {{time | raceTime}}
+  {{race.time | raceTime}}
 </h1>
 
 <p *ngIf="bestTime">
-  Against best time {{this.bestTime | raceTime}}
+  Against best time {{bestTime | raceTime}}
 </p>
 
 <button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>

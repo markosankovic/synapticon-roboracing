@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 
+import { Race } from '../race';
 import { RaceService } from '../race.service';
 
 @Component({
@@ -11,21 +12,27 @@ import { RaceService } from '../race.service';
 })
 export class CountdownComponent implements OnInit {
 
-  player: string;
+  race: Race;
   countdown: number = 3;
 
-  constructor(private router: Router, private raceService: RaceService) { }
+  subscription: Subscription;
+
+  constructor(private router: Router, private raceService: RaceService) {
+    this.race = this.raceService.race;
+  }
 
   ngOnInit() {
-    this.player = this.raceService.player;
     const observable = Observable.timer(1000, 1000);
-    const subscription = observable.subscribe(() => {
+    this.subscription = observable.subscribe(() => {
       if (this.countdown > 0) {
         --this.countdown;
       } else {
-        subscription.unsubscribe();
         this.router.navigate(['/race']);
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

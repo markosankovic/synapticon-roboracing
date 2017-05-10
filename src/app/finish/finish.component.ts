@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Race } from '../race';
 import { RaceService } from '../race.service';
 
 @Component({
@@ -10,14 +11,11 @@ import { RaceService } from '../race.service';
 })
 export class FinishComponent implements OnInit {
 
-  player: string;
-  time: number;
-  place: number = 21;
-
+  race: Race;
+  place:number = 12;
 
   constructor(private router: Router, private raceService: RaceService) {
-    this.player = raceService.player;
-    this.time = raceService.time;
+    this.race = raceService.race;
   }
 
   ngOnInit() {

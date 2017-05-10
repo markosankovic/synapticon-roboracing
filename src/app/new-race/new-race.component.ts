@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Race } from '../race';
 import { RaceService } from '../race.service';
 
 @Component({
@@ -10,15 +11,16 @@ import { RaceService } from '../race.service';
 })
 export class NewRaceComponent implements OnInit {
 
-  player: string;
+  race: Race;
 
-  constructor(private router: Router, private raceService: RaceService) { }
+  constructor(private router: Router, private raceService: RaceService) {
+    this.race = raceService.race = new Race();
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.raceService.player = this.player;
     this.router.navigate(['/countdown']);
   }
 
