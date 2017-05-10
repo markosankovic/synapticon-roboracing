@@ -1,8 +1,9 @@
+<p>{{this.player}} get ready...</p>
 <h1 *ngIf="this.countdown > 0; else goBlock">
   {{this.countdown}}
 </h1>
-<template #goBlock>
+<ng-template #goBlock>
   <h1>
     GO!
   </h1>
-</template>
+</ng-template>

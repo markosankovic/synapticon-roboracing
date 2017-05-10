@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { RaceService } from './race.service';
+
 import { AppComponent } from './app.component';
 import { HighScoresComponent } from './high-scores/high-scores.component';
 import { NewRaceComponent } from './new-race/new-race.component';
@@ -47,7 +49,9 @@ import { FinishComponent } from './finish/finish.component';
       }
     ])
   ],
-  providers: [],
+  providers: [
+    RaceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
