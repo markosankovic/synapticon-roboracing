@@ -1,6 +1,8 @@
 <h1>Hello RoboRacer!</h1>
 <form (ngSubmit)="onSubmit()" #formCtrl="ngForm">
   <label for="player">Enter your name:</label>
-  <input type="text" name="player" id="player" [(ngModel)]="this.player" required />
+  <input type="text" name="player" id="player" [(ngModel)]="player" required />
   <button type="submit" [disabled]="!formCtrl.form.valid">START!</button>
 </form>
+
+<button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>

@@ -1,3 +1,13 @@
-<p>
-  race works!
+<h2>
+  {{player}}
+</h2>
+<h1>
+  {{time | raceTime}}
+</h1>
+
+<p *ngIf="bestTime">
+  Against best time {{this.bestTime | raceTime}}
 </p>
+
+<button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>
+<button type="button" (click)="onFinish()">FINISH</button>

@@ -1,9 +1,11 @@
-<p>{{this.player}} get ready...</p>
-<h1 *ngIf="this.countdown > 0; else goBlock">
-  {{this.countdown}}
+<p>{{player}} get ready...</p>
+<h1 *ngIf="countdown > 0; else goBlock">
+  {{countdown}}
 </h1>
 <ng-template #goBlock>
   <h1>
     GO!
   </h1>
 </ng-template>
+
+<button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>

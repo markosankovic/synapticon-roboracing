@@ -12,6 +12,7 @@ import { NewRaceComponent } from './new-race/new-race.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { RaceComponent } from './race/race.component';
 import { FinishComponent } from './finish/finish.component';
+import { RaceTimePipe } from './race-time.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FinishComponent } from './finish/finish.component';
     NewRaceComponent,
     CountdownComponent,
     RaceComponent,
-    FinishComponent
+    FinishComponent,
+    RaceTimePipe
   ],
   imports: [
     BrowserModule,

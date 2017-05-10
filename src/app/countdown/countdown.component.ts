@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 import { RaceService } from '../race.service';
 
@@ -18,12 +18,12 @@ export class CountdownComponent implements OnInit {
 
   ngOnInit() {
     this.player = this.raceService.player;
-    const timer = Observable.timer(1000, 1000);
-    const subscribe = timer.subscribe(() => {
+    const observable = Observable.timer(1000, 1000);
+    const subscription = observable.subscribe(() => {
       if (this.countdown > 0) {
         --this.countdown;
       } else {
-        subscribe.unsubscribe();
+        subscription.unsubscribe();
         this.router.navigate(['/race']);
       }
     });
