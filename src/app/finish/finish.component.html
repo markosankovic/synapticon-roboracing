@@ -1,11 +1,20 @@
-<p>
-  Finish
-</p>
+<header>
+  <div class="text-center">
+    <h1>Finish</h1>
+  </div>
+</header>
 
-<h1>
-  {{race.time | raceTime}}
-</h1>
+<div class="row">
+  <div class="col">
+    <div class="center-wrapper text-center">
+      <h1>{{race.time | raceTime}}</h1>
+      <p>Congratulations {{race.player}}! You placed {{place | ordinal}}.</p>
+    </div>
+  </div>
+</div>
 
-<p>{{race.player}} you placed {{place | ordinal}} on the scoreboard!</p>
-
-<button type="button" class="btn" routerLink="/high-scores">HIGH SCORES</button>
+<footer>
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary" routerLink="/high-scores">HIGH SCORES</button>
+  </div>
+</footer>

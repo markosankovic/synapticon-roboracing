@@ -1,13 +1,23 @@
-<h2>
-  {{race.player}}
-</h2>
-<h1>
-  {{race.time | raceTime}}
-</h1>
+<header>
+  <div class="text-center">
+    <h1>{{race.player}}</h1>
+  </div>
+</header>
 
-<p *ngIf="bestTime">
-  Against best time {{bestTime | raceTime}}
-</p>
+<div class="row">
+  <div class="col">
+    <div class="center-wrapper text-center">
+      <h1 class="race-time">{{race.time | raceTime}}</h1>
+      <p *ngIf="bestTime">
+        Against best time {{bestTime | raceTime}}
+      </p>
+    </div>
+  </div>
+</div>
 
-<button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>
-<button type="button" (click)="onFinish()">FINISH</button>
+<footer>
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary" routerLink="/high-scores">STOP</button>
+    <button type="button" class="btn btn-warning" (click)="onFinish()">FINISH</button>
+  </div>
+</footer>

@@ -1,11 +1,28 @@
-<p>{{race.player}} get ready...</p>
-<h1 *ngIf="countdown > 0; else goBlock">
-  {{countdown}}
-</h1>
-<ng-template #goBlock>
-  <h1>
-    GO!
-  </h1>
-</ng-template>
+<header>
+  <div class="text-center">
+    <h1>Synapticon RoboRacing</h1>
+    <h2><strong>HIGHSCORES</strong></h2>
+  </div>
+</header>
 
-<button type="button" class="btn btn-cancel" routerLink="/high-scores">CANCEL</button>
+<div class="row">
+  <div class="col">
+    <div class="center-wrapper text-center">
+      <p>Get ready {{race.player}}...</p>
+      <h1 *ngIf="countdown > 0; else goBlock">
+        {{countdown}}
+      </h1>
+      <ng-template #goBlock>
+        <h1>
+          GO!
+        </h1>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary" routerLink="/high-scores">STOP</button>
+  </div>
+</footer>

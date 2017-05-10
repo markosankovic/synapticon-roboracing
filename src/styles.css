@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/normalize.css/normalize.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+header {
+  padding: 3rem 1.5rem;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.race-time {
+  font-family: Courier New, Courier, monospace;
+  font-weight: bold;
+}
+
+.center-wrapper {
+  padding: 0 15%;
+}
