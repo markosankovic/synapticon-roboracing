@@ -25,12 +25,13 @@ export class RaceService {
   /**
    * Insert race into this.races and save to localStorage.
    */
-  insertRace(race: Race) {
+  insertRace(race: Race): Race {
     if (!race.player || !race.time) {
       throw new Error('Race to insert has no player or time!');
     }
     this.races.push(race);
     localStorage.setItem('races', JSON.stringify(this.races));
+    return race;
   }
 
   clearRaces() {

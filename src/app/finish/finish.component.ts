@@ -12,11 +12,12 @@ import { RaceService } from '../race.service';
 export class FinishComponent implements OnInit {
 
   race: Race;
-  place: number = 12;
+  position: number;
 
   constructor(private router: Router, private raceService: RaceService) {
     this.race = raceService.sharedRace;
-    raceService.insertRace(new Race(this.race.player, this.race.time));
+    const insertedRace = raceService.insertRace(new Race(this.race.player, this.race.time));
+    this.position = raceService.races.sort((a, b) => a.time - b.time).indexOf(insertedRace) + 1;
   }
 
   ngOnInit() {
