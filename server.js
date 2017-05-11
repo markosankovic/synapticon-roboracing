@@ -1,29 +1,17 @@
 const WebSocket = require('ws');
 const Board = require('firmata');
 
-const pathToSerialPort = '/dev/cu.usbmodem1421';
-const board = new Board(pathToSerialPort, (error) => {
-  if (error) {
-    console.error(`there was an error opening ${pathToSerialPort}:`, error.message);
-    return;
-  }
-  console.log(`board on serial port ${pathToSerialPort} is ready`);
-});
-
 const wss = new WebSocket.Server({ port: 8765 });
+let ws; // client
+
+const pathToSerialPort = '/dev/cu.usbmodem1421';
 
 wss.on('connection', (client) => {
   console.log('wss.connection');
-
-  client.on('message', (message) => {
-    console.log('received: %s', message);
-  });
-
-  client.on('close', (code, message) => {
+  ws = client;
+  ws.on('close', (code, message) => {
     console.log('client.close', code, message); // https://tools.ietf.org/html/rfc6455#section-7.4.1
   });
-
-  client.send('something');
 });
 
 wss.on('error', (err) => {
@@ -36,4 +24,23 @@ wss.on('headers', (headers) => {
 
 wss.on('listening', () => {
   console.log('wss.listening');
+});
+
+const board = new Board(pathToSerialPort, (error) => {
+  if (error) {
+    console.error(`there was an error opening ${pathToSerialPort}:`, error.message);
+    return;
+  }
+  console.log(`board on serial port ${pathToSerialPort} is ready`);
+  board.pinMode(2, board.MODES.INPUT);
+  let prevValue;
+  board.digitalRead(2, (value) => {
+    console.log(`the value of digital pin 2 changed to: ${value}`);
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      if (prevValue !== value) {
+        ws.send(value);
+        prevValue = value;
+      }
+    }
+  });
 });
