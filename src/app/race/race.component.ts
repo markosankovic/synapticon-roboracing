@@ -20,6 +20,7 @@ export class RaceComponent implements OnInit {
   startTime: number = Date.now();
   endTime: number = Date.now();
 
+  sensorTimeoutId: number;
   boundSensorListener: EventListenerOrEventListenerObject;
 
   constructor(private router: Router, private raceService: RaceService, private sensorService: SensorService) { }
@@ -29,15 +30,19 @@ export class RaceComponent implements OnInit {
     if (sortedRaces.length > 0) {
       this.bestTime = sortedRaces[0].time;
     }
+
     this.race = this.raceService.sharedRace;
+
     const observable = Observable.timer(0, 1);
     this.subscription = observable.subscribe((val) => {
       this.endTime = Date.now();
       this.race.time = this.endTime - this.startTime;
     });
 
-    this.boundSensorListener = this.sensorListener.bind(this);
-    this.sensorService.ws.addEventListener('message', this.boundSensorListener);
+    this.sensorTimeoutId = window.setTimeout(() => {
+      this.boundSensorListener = this.sensorListener.bind(this);
+      this.sensorService.ws.addEventListener('message', this.boundSensorListener);
+    }, 30000);
   }
 
   sensorListener(ev) {
@@ -53,6 +58,7 @@ export class RaceComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.sensorService.ws.removeEventListener('message', this.boundSensorListener);
+    window.clearTimeout(this.sensorTimeoutId);
   }
 
 }
