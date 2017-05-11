@@ -1,16 +1,13 @@
 <header>
   <div class="text-center">
-    <h1>{{race.player}}</h1>
+    <h1>Start when you are ready {{race.player}}</h1>
   </div>
 </header>
 
 <div class="row">
   <div class="col">
     <div class="center-wrapper text-center">
-      <h1 class="race-time">{{race.time | raceTime}}</h1>
-      <p *ngIf="bestTime">
-        Against the best time <span class="race-time">{{bestTime | raceTime}}</span>
-      </p>
+      <p>Drive robot through start line to begin</p>
     </div>
   </div>
 </div>
@@ -18,6 +15,6 @@
 <footer>
   <div class="text-center">
     <button type="button" class="btn btn-secondary" routerLink="/high-scores">ABORT</button>
-    <button type="button" class="btn btn-warning hidden" routerLink="/finish">FINISH</button>
+    <button type="button" class="btn btn-primary hidden" routerLink="/race">RACE</button>
   </div>
 </footer>

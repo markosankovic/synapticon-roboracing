@@ -42,17 +42,13 @@ export class RaceComponent implements OnInit {
     this.sensorTimeoutId = window.setTimeout(() => {
       this.boundSensorListener = this.sensorListener.bind(this);
       this.sensorService.ws.addEventListener('message', this.boundSensorListener);
-    }, 0);
+    }, 5000);
   }
 
   sensorListener(ev) {
     if (Number.parseInt(ev.data) === 0) {
-      this.onFinish();
+      this.router.navigate(['/finish']);
     }
-  }
-
-  onFinish() {
-    this.router.navigate(['/finish']);
   }
 
   ngOnDestroy() {

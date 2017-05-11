@@ -16,13 +16,13 @@ export class FinishComponent implements OnInit {
 
   finishTimeoutId: number;
 
-  constructor(private router: Router, private raceService: RaceService) {
-    this.race = raceService.sharedRace;
-    const insertedRace = raceService.insertRace(new Race(this.race.player, this.race.time));
-    this.position = raceService.races.sort((a, b) => a.time - b.time).indexOf(insertedRace) + 1;
-  }
+  constructor(private router: Router, private raceService: RaceService) { }
 
   ngOnInit() {
+    this.race = this.raceService.sharedRace;
+    const insertedRace = this.raceService.insertRace(new Race(this.race.player, this.race.time));
+    this.position = this.raceService.races.sort((a, b) => a.time - b.time).indexOf(insertedRace) + 1;
+
     this.finishTimeoutId = window.setTimeout(() => {
       this.router.navigate(['/high-scores']);
     }, 10000);

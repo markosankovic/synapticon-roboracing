@@ -13,15 +13,14 @@ export class NewRaceComponent implements OnInit {
 
   race: Race;
 
-  constructor(private router: Router, private raceService: RaceService) {
-    this.race = raceService.sharedRace = new Race();
-  }
+  constructor(private router: Router, private raceService: RaceService) { }
 
   ngOnInit() {
+    this.race = this.raceService.sharedRace = new Race();
   }
 
   onSubmit() {
-    this.router.navigate(['/countdown']);
+    this.router.navigate(['/ready']);
   }
 
 }

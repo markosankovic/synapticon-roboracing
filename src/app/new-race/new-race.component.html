@@ -1,7 +1,6 @@
 <header>
   <div class="text-center">
-    <h1>Hello RoboRacer!</h1>
-    <h2><strong>PLEASE ENTER YOUR NAME</strong></h2>
+    <img id="break" src="/assets/break.svg" />
   </div>
 </header>
 
@@ -10,7 +9,7 @@
     <div class="center-wrapper text-center">
       <form (ngSubmit)="onSubmit()" #formCtrl="ngForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="player" id="player" [(ngModel)]="race.player" required appAutofocus />
+          <input type="text" class="form-control" name="player" id="player" [(ngModel)]="race.player" required appAutofocus placeholder="Enter your name" />
         </div>
         <button type="submit" class="btn btn-lg btn-primary" [disabled]="!formCtrl.form.valid">START</button>
       </form>

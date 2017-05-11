@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/normalize.css/normalize.css";
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "./assets/bootstrap.css";
+/*@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";*/
 
 @font-face {
   font-family: "Helvetica Neue LT Std";
@@ -28,6 +29,17 @@ footer {
 
 .hidden {
   display: none;
+}
+
+#logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 32%;
+}
+
+#break {
+  width: 22%;
 }
 
 .race-time {

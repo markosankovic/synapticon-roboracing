@@ -18,6 +18,7 @@ import { OrdinalPipe } from './ordinal.pipe';
 import { ReadyStatePipe } from './ready-state.pipe';
 import { WsComponent } from './ws/ws.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { ReadyComponent } from './ready/ready.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AutofocusDirective } from './autofocus.directive';
     OrdinalPipe,
     ReadyStatePipe,
     WsComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    ReadyComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,14 @@ import { AutofocusDirective } from './autofocus.directive';
         component: HighScoresComponent
       },
       {
+        path: 'countdown',
+        component: CountdownComponent
+      },
+      {
+        path: 'finish',
+        component: FinishComponent
+      },
+      {
         path: 'high-scores',
         component: HighScoresComponent
       },
@@ -51,16 +61,12 @@ import { AutofocusDirective } from './autofocus.directive';
         component: NewRaceComponent
       },
       {
-        path: 'countdown',
-        component: CountdownComponent
-      },
-      {
         path: 'race',
         component: RaceComponent
       },
       {
-        path: 'finish',
-        component: FinishComponent
+        path: 'ready',
+        component: ReadyComponent
       },
       {
         path: 'ws',

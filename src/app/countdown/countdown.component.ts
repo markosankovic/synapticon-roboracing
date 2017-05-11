@@ -17,11 +17,11 @@ export class CountdownComponent implements OnInit {
 
   subscription: Subscription;
 
-  constructor(private router: Router, private raceService: RaceService) {
-    this.race = this.raceService.sharedRace;
-  }
+  constructor(private router: Router, private raceService: RaceService) { }
 
   ngOnInit() {
+    this.race = this.raceService.sharedRace;
+
     const observable = Observable.timer(1000, 1000);
     this.subscription = observable.subscribe(() => {
       if (this.countdown > 0) {
