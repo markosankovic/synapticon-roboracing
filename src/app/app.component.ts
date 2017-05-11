@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { RaceService } from './race.service';
 
@@ -9,5 +10,9 @@ import { RaceService } from './race.service';
 })
 export class AppComponent {
 
-  constructor(private raceService: RaceService) { }
+  constructor(private router: Router, private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.router.navigate(['/high-scores']);
+  }
 }

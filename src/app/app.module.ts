@@ -17,6 +17,7 @@ import { RaceTimePipe } from './race-time.pipe';
 import { OrdinalPipe } from './ordinal.pipe';
 import { ReadyStatePipe } from './ready-state.pipe';
 import { WsComponent } from './ws/ws.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { WsComponent } from './ws/ws.component';
     RaceTimePipe,
     OrdinalPipe,
     ReadyStatePipe,
-    WsComponent
+    WsComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
