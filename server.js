@@ -1,4 +1,14 @@
 const WebSocket = require('ws');
+const Board = require('firmata');
+
+const pathToSerialPort = '/dev/cu.usbmodem1421';
+const board = new Board(pathToSerialPort, (error) => {
+  if (error) {
+    console.error(`there was an error opening ${pathToSerialPort}:`, error.message);
+    return;
+  }
+  console.log(`board on serial port ${pathToSerialPort} is ready`);
+});
 
 const wss = new WebSocket.Server({ port: 8765 });
 
@@ -17,7 +27,7 @@ wss.on('connection', (client) => {
 });
 
 wss.on('error', (err) => {
-  console.log('wss.error', err);
+  console.error('wss.error', err);
 });
 
 wss.on('headers', (headers) => {
