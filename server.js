@@ -10,7 +10,7 @@ wss.on('connection', (client) => {
   });
 
   client.on('close', (code, message) => {
-    console.log('client.close', code, message);
+    console.log('client.close', code, message); // https://tools.ietf.org/html/rfc6455#section-7.4.1
   });
 
   client.send('something');
