@@ -8,9 +8,10 @@
   <div class="col">
     <div class="center-wrapper text-center">
       <h1 class="race-time">{{race.time | raceTime}}</h1>
-      <p *ngIf="bestTime">
-        AGAINST THE BEST TIME <span>{{bestTime | raceTime}}</span>
-      </p>
+      <hr />
+      <h4 *ngIf="bestTime">
+        TIME TO BEAT <span>{{bestTime | raceTime}}</span>
+      </h4>
     </div>
   </div>
 </div>

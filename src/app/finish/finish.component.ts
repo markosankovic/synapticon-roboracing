@@ -25,7 +25,7 @@ export class FinishComponent implements OnInit {
 
     this.finishTimeoutId = window.setTimeout(() => {
       this.router.navigate(['/high-scores']);
-    }, 5000);
+    }, 10000);
   }
 
   ngOnDestroy() {

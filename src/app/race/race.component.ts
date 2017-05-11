@@ -42,7 +42,7 @@ export class RaceComponent implements OnInit {
     this.sensorTimeoutId = window.setTimeout(() => {
       this.boundSensorListener = this.sensorListener.bind(this);
       this.sensorService.ws.addEventListener('message', this.boundSensorListener);
-    }, 5000);
+    }, 10000);
   }
 
   sensorListener(ev) {
