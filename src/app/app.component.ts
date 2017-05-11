@@ -8,11 +8,6 @@ import { RaceService } from './race.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
 
   constructor(private raceService: RaceService) { }
-
-  clearRaces() {
-    this.raceService.clearRaces();
-  }
 }

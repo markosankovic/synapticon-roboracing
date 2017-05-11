@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { RaceService } from './race.service';
+import { SensorService } from './sensor.service';
 
 import { AppComponent } from './app.component';
 import { HighScoresComponent } from './high-scores/high-scores.component';
@@ -14,6 +15,8 @@ import { RaceComponent } from './race/race.component';
 import { FinishComponent } from './finish/finish.component';
 import { RaceTimePipe } from './race-time.pipe';
 import { OrdinalPipe } from './ordinal.pipe';
+import { ReadyStatePipe } from './ready-state.pipe';
+import { WsComponent } from './ws/ws.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { OrdinalPipe } from './ordinal.pipe';
     RaceComponent,
     FinishComponent,
     RaceTimePipe,
-    OrdinalPipe
+    OrdinalPipe,
+    ReadyStatePipe,
+    WsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,11 +55,16 @@ import { OrdinalPipe } from './ordinal.pipe';
       {
         path: 'finish',
         component: FinishComponent
+      },
+      {
+        path: 'ws',
+        component: WsComponent
       }
     ])
   ],
   providers: [
-    RaceService
+    RaceService,
+    SensorService
   ],
   bootstrap: [AppComponent]
 })
