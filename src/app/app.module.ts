@@ -39,6 +39,10 @@ import { AutofocusDirective } from './autofocus.directive';
     HttpModule,
     RouterModule.forRoot([
       {
+        path: '',
+        component: HighScoresComponent
+      },
+      {
         path: 'high-scores',
         component: HighScoresComponent
       },
@@ -61,6 +65,10 @@ import { AutofocusDirective } from './autofocus.directive';
       {
         path: 'ws',
         component: WsComponent
+      },
+      {
+        path: '**',
+        component: HighScoresComponent
       }
     ])
   ],
