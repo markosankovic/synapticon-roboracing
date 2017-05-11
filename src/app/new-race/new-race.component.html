@@ -11,7 +11,7 @@
     <div class="center-wrapper text-center">
       <form (ngSubmit)="onSubmit()" #formCtrl="ngForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="player" id="player" [(ngModel)]="race.player" required />
+          <input type="text" class="form-control" name="player" id="player" [(ngModel)]="race.player" required autofocus />
         </div>
         <button type="submit" class="btn btn-lg btn-primary" [disabled]="!formCtrl.form.valid">START</button>
       </form>
