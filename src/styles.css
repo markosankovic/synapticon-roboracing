@@ -10,8 +10,17 @@ footer {
   margin-top: 2rem;
 }
 
+h1 {
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
 .race-time {
-  font-family: Courier New, Courier, monospace;
+  font-family:  HelveticaNeueLTPro, sans-serif;
   font-weight: bold;
 }
 
