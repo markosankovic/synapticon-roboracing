@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs/Rx';
 
 import { Race } from '../race';
 import { RaceService } from '../race.service';
+import { SensorService } from '../sensor.service';
 
 @Component({
   selector: 'app-race',
@@ -19,7 +20,9 @@ export class RaceComponent implements OnInit {
   startTime: number = Date.now();
   endTime: number = Date.now();
 
-  constructor(private router: Router, private raceService: RaceService) { }
+  boundSensorListener: EventListenerOrEventListenerObject;
+
+  constructor(private router: Router, private raceService: RaceService, private sensorService: SensorService) { }
 
   ngOnInit() {
     this.race = this.raceService.sharedRace;
@@ -28,6 +31,15 @@ export class RaceComponent implements OnInit {
       this.endTime = Date.now();
       this.race.time = this.endTime - this.startTime;
     });
+
+    this.boundSensorListener = this.sensorListener.bind(this);
+    this.sensorService.ws.addEventListener('message', this.boundSensorListener);
+  }
+
+  sensorListener(ev) {
+    if (Number.parseInt(ev.data) === 0) {
+      this.onFinish();
+    }
   }
 
   onFinish() {
@@ -36,6 +48,7 @@ export class RaceComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.sensorService.ws.removeEventListener('message', this.boundSensorListener);
   }
 
 }

@@ -33,14 +33,10 @@ const board = new Board(pathToSerialPort, (error) => {
   }
   console.log(`board on serial port ${pathToSerialPort} is ready`);
   board.pinMode(2, board.MODES.INPUT);
-  let prevValue;
   board.digitalRead(2, (value) => {
     console.log(`the value of digital pin 2 changed to: ${value}`);
     if (ws && ws.readyState === WebSocket.OPEN) {
-      if (prevValue !== value) {
-        ws.send(value);
-        prevValue = value;
-      }
+      ws.send(value);
     }
   });
 });
