@@ -14,7 +14,7 @@ import { SensorService } from '../sensor.service';
 export class RaceComponent implements OnInit {
 
   race: Race;
-  bestTime: number = 12345; // in milliseconds
+  bestTime: number; // in milliseconds
 
   subscription: Subscription;
   startTime: number = Date.now();
@@ -25,6 +25,10 @@ export class RaceComponent implements OnInit {
   constructor(private router: Router, private raceService: RaceService, private sensorService: SensorService) { }
 
   ngOnInit() {
+    const sortedRaces = this.raceService.races.sort((a, b) => a.time - b.time);
+    if (sortedRaces.length > 0) {
+      this.bestTime = sortedRaces[0].time;
+    }
     this.race = this.raceService.sharedRace;
     const observable = Observable.timer(0, 1);
     this.subscription = observable.subscribe((val) => {
