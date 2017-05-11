@@ -10,6 +10,10 @@ footer {
   margin-top: 2rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .race-time {
   font-family: Courier New, Courier, monospace;
   font-weight: bold;

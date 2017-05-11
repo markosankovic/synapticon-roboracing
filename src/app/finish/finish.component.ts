@@ -14,6 +14,8 @@ export class FinishComponent implements OnInit {
   race: Race;
   position: number;
 
+  finishTimeoutId: number;
+
   constructor(private router: Router, private raceService: RaceService) {
     this.race = raceService.sharedRace;
     const insertedRace = raceService.insertRace(new Race(this.race.player, this.race.time));
@@ -21,6 +23,13 @@ export class FinishComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.finishTimeoutId = window.setTimeout(() => {
+      this.router.navigate(['/high-scores']);
+    }, 5000);
+  }
+
+  ngOnDestroy() {
+    window.clearTimeout(this.finishTimeoutId);
   }
 
 }
