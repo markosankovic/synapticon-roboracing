@@ -29,4 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Running sensor WebSocket server
 
+Change the path to serial port in server.js. For linux use `lsusb` to list all usb devices. The equivalent Mac OSX command line is `system_profiler SPUSBDataType`.
+
+For Arduino Leonardo the path to serial port is: /dev/cu.usbmodem1421
+
 Run `node server.js` to run sensor WebSocket server on port 8765.
