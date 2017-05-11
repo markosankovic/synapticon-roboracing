@@ -9,7 +9,7 @@
     <div class="center-wrapper text-center">
       <h1 class="race-time">{{race.time | raceTime}}</h1>
       <p *ngIf="bestTime">
-        Against the best time {{bestTime | raceTime}}
+        Against the best time <span class="race-time">{{bestTime | raceTime}}</span>
       </p>
     </div>
   </div>
