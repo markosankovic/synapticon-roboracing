@@ -15,7 +15,7 @@ export class HighScoresComponent implements OnInit {
   constructor(private raceService: RaceService) { }
 
   ngOnInit() {
-    this.races = this.raceService.races.sort((a, b) => a.time - b.time).slice(0, 5);
+    this.races = this.raceService.races.sort((a, b) => a.time - b.time).slice(0, 10);
   }
 
 }

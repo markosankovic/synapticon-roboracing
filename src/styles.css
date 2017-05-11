@@ -20,7 +20,7 @@ body {
 }
 
 header {
-  padding: 3rem 1.5rem;
+  padding: 6rem 1.5rem 3rem;
 }
 
 footer {
@@ -40,6 +40,10 @@ footer {
 
 #break {
   width: 22%;
+}
+
+#finish {
+  width: 20%;
 }
 
 .race-time {

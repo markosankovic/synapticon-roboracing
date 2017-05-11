@@ -9,7 +9,8 @@
     <div class="center-wrapper text-center">
       <form (ngSubmit)="onSubmit()" #formCtrl="ngForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="player" id="player" [(ngModel)]="race.player" required appAutofocus placeholder="Enter your name" />
+          <label for="player">ENTER YOUR NAME</label>
+          <input type="text" class="form-control" name="player" id="player" [(uppercase)]='race.player' required appAutofocus />
         </div>
         <button type="submit" class="btn btn-lg btn-primary" [disabled]="!formCtrl.form.valid">START</button>
       </form>

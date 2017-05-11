@@ -19,6 +19,7 @@ import { ReadyStatePipe } from './ready-state.pipe';
 import { WsComponent } from './ws/ws.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { ReadyComponent } from './ready/ready.component';
+import { UppercaseDirective } from './uppercase.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReadyComponent } from './ready/ready.component';
     ReadyStatePipe,
     WsComponent,
     AutofocusDirective,
-    ReadyComponent
+    ReadyComponent,
+    UppercaseDirective
   ],
   imports: [
     BrowserModule,

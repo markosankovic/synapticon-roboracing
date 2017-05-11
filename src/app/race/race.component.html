@@ -1,6 +1,6 @@
 <header>
   <div class="text-center">
-    <h1>{{race.player}}</h1>
+    <h1><strong>{{race.player}}</strong></h1>
   </div>
 </header>
 
@@ -9,7 +9,7 @@
     <div class="center-wrapper text-center">
       <h1 class="race-time">{{race.time | raceTime}}</h1>
       <p *ngIf="bestTime">
-        Against the best time <span class="race-time">{{bestTime | raceTime}}</span>
+        AGAINST THE BEST TIME <span>{{bestTime | raceTime}}</span>
       </p>
     </div>
   </div>

@@ -1,14 +1,14 @@
 <header>
   <div class="text-center">
-    <h1>Finish</h1>
+    <img id="finish" src="/assets/finish.png" />
   </div>
 </header>
 
 <div class="row">
   <div class="col">
     <div class="center-wrapper text-center">
-      <h1 class="race-time">{{race.time | raceTime}}</h1>
-      <p>Congratulations {{race.player}}! You placed {{position | ordinal}}.</p>
+      <h1><strong>{{race.time | raceTime}}</strong></h1>
+      <p>CONGRATULATIONS <strong>{{race.player}}</strong>! YOU PLACED <strong>{{position | ordinal}}</strong>.</p>
     </div>
   </div>
 </div>
