@@ -19,7 +19,7 @@ export class RaceTimePipe implements PipeTransform {
     const seconds = (ms / 1000) % 60 << 0;
     const milliseconds = (ms - (minutes * 1000 * 60) - (seconds * 1000)) << 0;
     const millis = pad(milliseconds, 3);
-    return (minutes + ':' + (seconds < 10 ? '0' : '') + seconds + '.' + millis).substr(0, 8);
+    return (minutes + ':' + (seconds < 10 ? '0' : '') + seconds + '.' + millis);
   }
 
 }
